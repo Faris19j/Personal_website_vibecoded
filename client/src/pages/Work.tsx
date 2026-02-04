@@ -4,6 +4,12 @@ import { Link } from "wouter";
 import { Badge } from "@/components/ui/Badge";
 import { ArrowUpRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Work() {
   const { data: projects, isLoading } = useProjects();
@@ -31,35 +37,43 @@ export default function Work() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
             {projects?.map((project) => (
-              <Link key={project.id} href={`/work/${project.slug}`} className="group block space-y-4 cursor-pointer">
-                <div className="aspect-[16/10] bg-secondary rounded-xl overflow-hidden border border-border/50 transition-colors group-hover:border-border/80 relative">
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20 font-bold text-4xl select-none">
-                    {project.title.substring(0, 2)}
-                  </div>
-                  {/* If we had images, they would go here */}
-                </div>
+              <TooltipProvider key={project.id}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link href={`/work/${project.slug}`} className="group block space-y-4 cursor-pointer">
+                      <div className="aspect-[16/10] bg-secondary rounded-xl overflow-hidden border border-border/50 transition-all group-hover:border-primary/50 group-hover:shadow-lg relative">
+                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20 font-bold text-4xl select-none group-hover:scale-110 transition-transform">
+                          {project.title.substring(0, 2)}
+                        </div>
+                      </div>
 
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-2xl font-semibold mt-0 group-hover:underline decoration-1 underline-offset-4">
-                      {project.title}
-                    </h3>
-                    <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                  </div>
-                  
-                  <p className="text-muted-foreground line-clamp-2">
-                    {project.summary}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {project.tags.map(tag => (
-                      <Badge key={tag} className="bg-secondary hover:bg-secondary-foreground/5 text-secondary-foreground border-transparent">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+                      <div className="space-y-3">
+                        <div className="flex items-start justify-between">
+                          <h3 className="text-2xl font-semibold mt-0 group-hover:underline decoration-1 underline-offset-4">
+                            {project.title}
+                          </h3>
+                          <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                        </div>
+                        
+                        <p className="text-muted-foreground line-clamp-2">
+                          {project.summary}
+                        </p>
+                        
+                        <div className="flex flex-wrap gap-2 pt-2">
+                          {project.tags.map(tag => (
+                            <Badge key={tag} className="bg-secondary hover:bg-secondary-foreground/5 text-secondary-foreground border-transparent">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Learn more about this initiative</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             ))}
             
             {(!projects || projects.length === 0) && (
@@ -69,6 +83,16 @@ export default function Work() {
             )}
           </div>
         )}
+
+        <section className="py-24 border-t border-border/50 flex flex-col items-center text-center gap-6 mt-12">
+          <h2 className="text-3xl font-bold tracking-tight">Do you have a challenge for me?</h2>
+          <p className="text-muted-foreground text-lg max-w-md">
+            I'm always looking for interesting problems to solve. Let's build something together.
+          </p>
+          <Link href="/contact">
+            <Button size="lg" className="rounded-full px-12">Let's talk</Button>
+          </Link>
+        </section>
       </div>
     </PageTransition>
   );

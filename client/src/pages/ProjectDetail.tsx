@@ -81,15 +81,20 @@ export default function ProjectDetail() {
 
           {content.future && (
             <section className="mb-12 pt-8 border-t border-dashed border-border">
-              <h3 className="text-lg font-semibold uppercase tracking-wider text-muted-foreground mb-4">Next Steps</h3>
+              <h3 className="text-lg font-semibold uppercase tracking-wider text-muted-foreground mb-4">Learnings for this</h3>
               <p className="text-muted-foreground italic leading-relaxed">{content.future}</p>
             </section>
           )}
         </article>
 
         <div className="mt-20 pt-8 border-t border-border flex justify-between items-center">
-          <span className="text-muted-foreground">Like what you see?</span>
-          <Link href="/contact" className="font-medium hover:underline">Let's talk</Link>
+          <div className="space-y-1">
+            <span className="text-muted-foreground block text-sm">Like what you see?</span>
+            <span className="text-lg font-medium">Let's talk closer to each other</span>
+          </div>
+          <Link href="/contact">
+            <Button size="lg" className="rounded-full px-8">Let's talk</Button>
+          </Link>
         </div>
       </div>
     </PageTransition>

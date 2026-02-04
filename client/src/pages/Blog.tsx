@@ -28,28 +28,28 @@ export default function Blog() {
             ))}
           </div>
         ) : (
-          <div className="space-y-10">
+          <div className="space-y-16">
             {posts?.map((post) => (
-              <article key={post.id} className="group relative flex flex-col items-start">
+              <article key={post.id} className="group relative flex flex-col items-start border-b border-border/50 pb-12 last:border-0">
                 <time 
                   dateTime={post.date} 
-                  className="text-sm text-muted-foreground mb-2 font-mono"
+                  className="text-sm text-muted-foreground mb-4 font-mono"
                 >
                   {format(new Date(post.date), 'MMMM dd, yyyy')}
                 </time>
                 <Link href={`/blog/${post.slug}`}>
-                  <h2 className="text-2xl font-semibold mt-0 mb-3 group-hover:underline decoration-1 underline-offset-4 cursor-pointer">
+                  <h2 className="text-3xl font-semibold mt-0 mb-4 group-hover:text-primary transition-colors cursor-pointer leading-tight">
                     {post.title}
                   </h2>
                 </Link>
-                <p className="text-muted-foreground text-lg leading-relaxed line-clamp-2">
+                <p className="text-muted-foreground text-lg leading-relaxed line-clamp-3 mb-6">
                   {post.excerpt}
                 </p>
                 <Link 
                   href={`/blog/${post.slug}`}
-                  className="mt-3 text-sm font-medium text-foreground underline decoration-border underline-offset-4 group-hover:decoration-foreground transition-all"
+                  className="inline-flex items-center text-sm font-semibold text-foreground hover:gap-2 transition-all group/link"
                 >
-                  Read more
+                  Read full article <span className="ml-1 transition-all group-hover/link:translate-x-1">→</span>
                 </Link>
               </article>
             ))}
