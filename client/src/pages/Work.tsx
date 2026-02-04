@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Badge } from "@/components/ui/Badge";
 import { ArrowUpRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/Button";
 import {
   Tooltip,
   TooltipContent,
