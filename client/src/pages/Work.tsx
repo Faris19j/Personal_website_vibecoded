@@ -59,14 +59,6 @@ export default function Work() {
                         <p className="text-muted-foreground line-clamp-2">
                           {project.summary}
                         </p>
-                        
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          {project.tags.map(tag => (
-                            <Badge key={tag} className="bg-secondary hover:bg-secondary-foreground/5 text-secondary-foreground border-transparent">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
                       </div>
                     </Link>
                   </TooltipTrigger>

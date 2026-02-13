@@ -10,18 +10,25 @@ export default function Home() {
         {/* HERO */}
         <section className="space-y-6 max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
-            Hi, I'm Alex. <br />
-            <span className="text-muted-foreground font-light">I build digital products.</span>
+            Hi, I'm Faris. <br />
+            <span className="text-muted-foreground font-light">
+              I build digital products.
+            </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
-            I'm a frontend engineer and designer focused on building clean, accessible, and performant web applications.
+            I'm an aspiring Polymath focused on building clean, accessible, and
+            performant web applications.
           </p>
           <div className="flex gap-4 pt-4">
             <Link href="/work">
-              <Button size="lg" className="rounded-full px-8">View Work</Button>
+              <Button size="lg" className="rounded-full px-8">
+                View Work
+              </Button>
             </Link>
             <Link href="/blog">
-              <Button size="lg" className="rounded-full px-8">Read Blog</Button>
+              <Button size="lg" className="rounded-full px-8">
+                Read Blog
+              </Button>
             </Link>
           </div>
         </section>
@@ -34,12 +41,15 @@ export default function Home() {
           </div>
           <div className="space-y-4 text-lg text-muted-foreground">
             <p>
-              I am a multidisciplinary builder with a background in Design Systems and Product Engineering. 
-              My philosophy is simple: technology should be invisible, enabling users to achieve their goals without friction.
+              I am a multidisciplinary builder with a background in Design
+              Systems and Product Engineering. My philosophy is simple:
+              technology should be invisible, enabling users to achieve their
+              goals without friction.
             </p>
             <p>
-              Currently, I'm exploring the intersection of AI and human-computer interaction, trying to find 
-              patterns that make generative interfaces feel natural and reliable.
+              Currently, I'm exploring the intersection of AI and human-computer
+              interaction, trying to find patterns that make generative
+              interfaces feel natural and reliable.
             </p>
           </div>
         </section>
@@ -56,7 +66,8 @@ export default function Home() {
                 Senior Frontend Engineer @ TechCorp
               </h3>
               <p className="text-base text-muted-foreground">
-                Led the migration of a legacy monolithic frontend to a modern Next.js architecture, improving build times by 60%.
+                Led the migration of a legacy monolithic frontend to a modern
+                Next.js architecture, improving build times by 60%.
               </p>
             </div>
             <div className="group space-y-2">
@@ -69,7 +80,10 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <Link href="/work" className="inline-flex items-center text-sm font-semibold hover:underline">
+            <Link
+              href="/work"
+              className="inline-flex items-center text-sm font-semibold hover:underline"
+            >
               View all case studies <ArrowRight className="ml-1 w-4 h-4" />
             </Link>
           </div>
@@ -82,18 +96,25 @@ export default function Home() {
             <span>Interests</span>
           </div>
           <p className="text-lg text-muted-foreground">
-            When I'm not coding, I'm deeply interested in urban planning, analog photography, and making the perfect cup of coffee. 
-            I believe that great software shares the same principles as great architecture: it should be functional, durable, and beautiful.
+            When I'm not coding, I'm deeply interested in urban planning, analog
+            photography, and making the perfect cup of coffee. I believe that
+            great software shares the same principles as great architecture: it
+            should be functional, durable, and beautiful.
           </p>
         </section>
 
         <section className="py-24 border-t border-border/50 flex flex-col items-center text-center gap-6">
-          <h2 className="text-3xl font-bold tracking-tight">Do you have a challenge for me?</h2>
+          <h2 className="text-3xl font-bold tracking-tight">
+            Do you have a challenge for me?
+          </h2>
           <p className="text-muted-foreground text-lg max-w-md">
-            I'm always looking for interesting problems to solve. Let's build something together.
+            I'm always looking for interesting problems to solve. Let's build
+            something together.
           </p>
           <Link href="/contact">
-            <Button size="lg" className="rounded-full px-12">Let's talk</Button>
+            <Button size="lg" className="rounded-full px-12">
+              Let's talk
+            </Button>
           </Link>
         </section>
       </div>

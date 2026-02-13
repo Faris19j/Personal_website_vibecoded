@@ -2,6 +2,7 @@ import { usePosts } from "@/hooks/use-content";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { Link } from "wouter";
 import { format } from "date-fns";
+import { Badge } from "@/components/ui/Badge";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Blog() {
@@ -42,10 +43,17 @@ export default function Blog() {
                     {post.title}
                   </h2>
                 </Link>
-                <p className="text-muted-foreground text-lg leading-relaxed line-clamp-3 mb-6">
+                <p className="text-muted-foreground text-lg leading-relaxed line-clamp-3 mb-4">
                   {post.excerpt}
                 </p>
-                <Link 
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {post.tags?.map(tag => (
+                    <Badge key={tag} className="bg-secondary/50 hover:bg-secondary text-secondary-foreground border-border/50">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                <Link
                   href={`/blog/${post.slug}`}
                   className="inline-flex items-center text-sm font-semibold text-foreground hover:gap-2 transition-all group/link"
                 >

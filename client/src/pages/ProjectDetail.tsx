@@ -2,7 +2,7 @@ import { useProject } from "@/hooks/use-content";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { Link, useRoute } from "wouter";
 import { ArrowLeft } from "lucide-react";
-import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ProjectDetail() {
@@ -45,13 +45,6 @@ export default function ProjectDetail() {
         <header className="mb-12 border-b border-border pb-8">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">{project.title}</h1>
           <p className="text-xl md:text-2xl text-muted-foreground font-light mb-6 leading-relaxed">{project.summary}</p>
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map(tag => (
-              <Badge key={tag} className="px-3 py-1 text-sm bg-secondary text-secondary-foreground hover:bg-secondary/80">
-                {tag}
-              </Badge>
-            ))}
-          </div>
         </header>
 
         <article className="prose prose-lg prose-neutral dark:prose-invert max-w-none">

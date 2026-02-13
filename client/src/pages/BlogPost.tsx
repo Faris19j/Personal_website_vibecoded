@@ -3,6 +3,7 @@ import { PageTransition } from "@/components/layout/PageTransition";
 import { Link, useRoute } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import { format } from "date-fns";
+import { Badge } from "@/components/ui/Badge";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function BlogPost() {
@@ -46,9 +47,16 @@ export default function BlogPost() {
             <time className="text-sm text-muted-foreground font-mono block mb-4">
               {format(new Date(post.date), 'MMMM dd, yyyy')}
             </time>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-tight mb-4">
               {post.title}
             </h1>
+            <div className="flex flex-wrap gap-2">
+              {post.tags?.map(tag => (
+                <Badge key={tag} className="bg-secondary/50 hover:bg-secondary text-secondary-foreground border-border/50">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
           </header>
 
           <div className="prose prose-lg prose-neutral dark:prose-invert max-w-none">

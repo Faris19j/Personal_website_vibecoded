@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(createdb:*)",
+      "Bash(DATABASE_URL=postgres://localhost/portfolio_blog npm run dev:*)",
+      "Bash(DATABASE_URL=postgres://localhost/portfolio_blog npm run db:push:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs:*)",
+      "Bash(kill:*)",
+      "Bash(DATABASE_URL=postgres://localhost/portfolio_blog PORT=3000 npm run dev:*)"
+    ]
+  }
+}
