@@ -1,12 +1,8 @@
 {
+  "version": 2,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "startCommand": "npm start",
   "env": {
     "NODE_ENV": "production"
-  },
-  "functions": {
-    "server/index.ts": {
-      "runtime": "nodejs20.x"
-    }
   }
 }
