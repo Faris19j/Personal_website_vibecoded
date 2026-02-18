@@ -19,7 +19,7 @@ export function Navbar() {
           href="/"
           className="font-semibold text-lg tracking-tight text-foreground hover:opacity-80 transition-opacity"
         >
-          Faris
+          Faris Aljabr
         </Link>
 
         <div className="flex items-center gap-8 flex-1 justify-end">
