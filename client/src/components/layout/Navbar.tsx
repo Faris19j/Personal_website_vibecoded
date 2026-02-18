@@ -13,7 +13,7 @@ export function Navbar() {
   const [location] = useLocation();
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40">
+    <nav className="sticky top-0 z-50 w-full bg-white/10 dark:bg-black/10 backdrop-blur-xl border-b border-white/20 dark:border-white/10 shadow-sm">
       <div className="container max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
