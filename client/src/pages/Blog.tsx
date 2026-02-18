@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { format } from "date-fns";
 import { Badge } from "@/components/ui/Badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { calculateReadTime, formatReadTime } from "@/lib/readTime";
 
 export default function Blog() {
   const { data: posts, isLoading } = usePosts();
@@ -30,14 +31,17 @@ export default function Blog() {
           </div>
         ) : (
           <div className="space-y-16">
-            {posts?.map((post) => (
+            {posts?.map((post) => {
+              const readTime = calculateReadTime(post.content);
+              return (
               <article key={post.id} className="group relative flex flex-col items-start border-b border-border/50 pb-12 last:border-0">
-                <time 
-                  dateTime={post.date} 
-                  className="text-sm text-muted-foreground mb-4 font-mono"
-                >
-                  {format(new Date(post.date), 'MMMM dd, yyyy')}
-                </time>
+                <div className="flex items-center gap-3 mb-4 text-sm text-muted-foreground font-mono">
+                  <time dateTime={post.date}>
+                    {format(new Date(post.date), 'MMMM dd, yyyy')}
+                  </time>
+                  <span>•</span>
+                  <span>{formatReadTime(readTime)}</span>
+                </div>
                 <Link href={`/blog/${post.slug}`}>
                   <h2 className="text-3xl font-semibold mt-0 mb-4 group-hover:text-primary transition-colors cursor-pointer leading-tight">
                     {post.title}
@@ -60,7 +64,8 @@ export default function Blog() {
                   Read full article <span className="ml-1 transition-all group-hover/link:translate-x-1">→</span>
                 </Link>
               </article>
-            ))}
+            );
+            })}
             
             {(!posts || posts.length === 0) && (
               <div className="py-12 text-center border rounded-xl border-dashed">

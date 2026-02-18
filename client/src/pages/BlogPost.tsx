@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import { format } from "date-fns";
 import { Badge } from "@/components/ui/Badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { calculateReadTime, formatReadTime } from "@/lib/readTime";
 
 export default function BlogPost() {
   const [match, params] = useRoute("/blog/:slug");
@@ -35,6 +36,8 @@ export default function BlogPost() {
     );
   }
 
+  const readTime = calculateReadTime(post.content);
+
   return (
     <PageTransition>
       <div className="py-12 md:py-20 max-w-2xl mx-auto">
@@ -44,9 +47,13 @@ export default function BlogPost() {
 
         <article>
           <header className="mb-10">
-            <time className="text-sm text-muted-foreground font-mono block mb-4">
-              {format(new Date(post.date), 'MMMM dd, yyyy')}
-            </time>
+            <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono mb-4">
+              <time dateTime={post.date}>
+                {format(new Date(post.date), 'MMMM dd, yyyy')}
+              </time>
+              <span>•</span>
+              <span>{formatReadTime(readTime)}</span>
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground leading-tight mb-4">
               {post.title}
             </h1>
