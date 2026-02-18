@@ -17,78 +17,73 @@ export default function Work() {
 
   return (
     <PageTransition>
-      <div className="py-16 md:py-40 space-y-16">
-        <header className="space-y-6 max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground">
-            Selected work
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            A selection of projects that define my approach to <span className="text-foreground font-medium">problem-solving and product design</span>.
+      <div className="py-12 md:py-24 space-y-12">
+        <header className="space-y-4 max-w-2xl">
+          <h1 className="text-4xl font-bold tracking-tight">Initiatives</h1>
+          <p className="text-xl text-muted-foreground">
+            A selection of projects that define my approach to problem-solving.
           </p>
         </header>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="space-y-4">
-                <Skeleton className="h-48 w-full rounded-xl" />
+                <Skeleton className="h-64 w-full rounded-xl" />
                 <Skeleton className="h-8 w-2/3" />
                 <Skeleton className="h-4 w-full" />
               </div>
             ))}
           </div>
         ) : (
-          <div className="space-y-12">
-            {projects?.map((project, idx) => (
-              <Link
-                key={project.id}
-                href={`/work/${project.slug}`}
-                className="group block space-y-6 cursor-pointer py-8 border-b border-border/20 last:border-0 hover:bg-white/30 dark:hover:bg-white/5 transition-colors rounded-lg px-4 -mx-4"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="space-y-2 flex-1">
-                      <h3 className="text-2xl md:text-3xl font-semibold text-foreground group-hover:text-accent transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-base text-muted-foreground leading-relaxed">
-                        {project.summary}
-                      </p>
-                    </div>
-                    <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" />
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+            {projects?.map((project) => (
+              <TooltipProvider key={project.id}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link href={`/work/${project.slug}`} className="group block space-y-4 cursor-pointer">
+                      <div className="aspect-[16/10] bg-secondary rounded-xl overflow-hidden border border-border/50 transition-all group-hover:border-primary/50 group-hover:shadow-lg relative">
+                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20 font-bold text-4xl select-none group-hover:scale-110 transition-transform">
+                          {project.title.substring(0, 2)}
+                        </div>
+                      </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-3 py-1.5 rounded-full bg-secondary/50 text-muted-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+                      <div className="space-y-3">
+                        <div className="flex items-start justify-between">
+                          <h3 className="text-2xl font-semibold mt-0 group-hover:underline decoration-1 underline-offset-4">
+                            {project.title}
+                          </h3>
+                          <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                        </div>
+                        
+                        <p className="text-muted-foreground line-clamp-2">
+                          {project.summary}
+                        </p>
+                      </div>
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Learn more about this initiative</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             ))}
-
+            
             {(!projects || projects.length === 0) && (
-              <div className="py-24 text-center">
+              <div className="col-span-full py-24 text-center border rounded-xl border-dashed">
                 <p className="text-muted-foreground">No projects published yet.</p>
               </div>
             )}
           </div>
         )}
 
-        <section className="py-24 border-t border-border/20 flex flex-col items-center text-center gap-6 mt-16">
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">Let's create something</h2>
-            <p className="text-muted-foreground text-base md:text-lg max-w-md">
-              I'm always looking for interesting challenges. If you have a problem in mind, I'd love to hear about it.
-            </p>
-          </div>
+        <section className="py-24 border-t border-border/50 flex flex-col items-center text-center gap-6 mt-12">
+          <h2 className="text-3xl font-bold tracking-tight">Do you have a challenge for me?</h2>
+          <p className="text-muted-foreground text-lg max-w-md">
+            I'm always looking for interesting problems to solve. Let's build something together.
+          </p>
           <Link href="/contact">
-            <Button size="lg" className="rounded-full px-12 bg-accent hover:bg-accent/90 text-accent-foreground">Get in touch</Button>
+            <Button size="lg" className="rounded-full px-12">Let's talk</Button>
           </Link>
         </section>
       </div>

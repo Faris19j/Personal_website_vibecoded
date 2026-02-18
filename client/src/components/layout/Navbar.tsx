@@ -13,17 +13,17 @@ export function Navbar() {
   const [location] = useLocation();
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white/50 dark:bg-black/40 backdrop-blur-2xl border-b border-white/20 dark:border-white/10">
+    <nav className="sticky top-0 z-50 w-full bg-white/10 dark:bg-black/10 backdrop-blur-xl border-b border-white/20 dark:border-white/10 shadow-sm">
       <div className="container max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="font-semibold text-lg tracking-tight text-foreground hover:text-accent transition-colors"
+          className="font-semibold text-lg tracking-tight hover:opacity-80 transition-opacity"
         >
-          Faris
+          Faris Aljabr
         </Link>
 
-        <div className="flex items-center gap-8">
-          <div className="hidden sm:flex items-center gap-8">
+        <div className="flex items-center gap-6">
+          <div className="hidden sm:flex items-center gap-6">
             {navItems.map((item) => {
               const isActive =
                 location === item.href ||
@@ -33,8 +33,8 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors",
-                    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                    "text-sm font-medium transition-colors hover:text-foreground",
+                    isActive ? "text-foreground" : "text-muted-foreground",
                   )}
                 >
                   {item.label}

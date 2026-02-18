@@ -24,48 +24,48 @@
   --secondary-foreground: 0 0% 9%;
 
   --muted: 0 0% 96.1%;
-  --muted-foreground: 0 0% 50%;  /* Medium gray for readable secondary text */
+  --muted-foreground: 0 0% 45.1%; /* Medium gray for readable secondary text */
 
-  --accent: 28 100% 72%;         /* Warm orange/peach for CTAs */
-  --accent-foreground: 0 0% 10%;
+  --accent: 0 0% 96.1%;
+  --accent-foreground: 0 0% 9%;
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
 
-  --border: 0 0% 92%;            /* Slightly darker light borders */
-  --input: 0 0% 92%;
+  --border: 0 0% 89.8%;          /* Light borders */
+  --input: 0 0% 89.8%;
   --ring: 0 0% 3.9%;
 
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: 0 0% 8%;          /* Very dark background */
+  --background: 0 0% 10%;         /* Dark background */
   --foreground: 0 0% 98%;         /* Light text */
 
-  --card: 0 0% 12%;
+  --card: 0 0% 15%;
   --card-foreground: 0 0% 98%;
 
-  --popover: 0 0% 12%;
+  --popover: 0 0% 15%;
   --popover-foreground: 0 0% 98%;
 
   --primary: 0 0% 98%;            /* Light primary for contrast */
-  --primary-foreground: 0 0% 8%;
+  --primary-foreground: 0 0% 9%;
 
-  --secondary: 0 0% 18%;          /* Slightly lighter gray */
+  --secondary: 0 0% 20%;          /* Slightly lighter gray */
   --secondary-foreground: 0 0% 98%;
 
-  --muted: 0 0% 28%;
-  --muted-foreground: 0 0% 65%;   /* Medium gray for secondary text */
+  --muted: 0 0% 30%;
+  --muted-foreground: 0 0% 60%;   /* Medium gray for secondary text */
 
-  --accent: 28 100% 72%;          /* Same warm orange for consistency */
-  --accent-foreground: 0 0% 10%;
+  --accent: 0 0% 20%;
+  --accent-foreground: 0 0% 98%;
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 10%;
 
-  --border: 0 0% 20%;             /* Dark borders */
-  --input: 0 0% 20%;
+  --border: 0 0% 25%;             /* Dark borders */
+  --input: 0 0% 25%;
   --ring: 0 0% 96.1%;
 }
 
@@ -88,20 +88,16 @@
 
   /* Minimalist Typography Scale */
   h1 {
-    @apply text-4xl md:text-6xl font-semibold tracking-tight;
-    text-wrap: balance;
+    @apply text-4xl md:text-5xl font-semibold tracking-tight;
   }
   h2 {
-    @apply text-3xl md:text-4xl font-semibold tracking-tight mt-10 mb-4;
-    text-wrap: balance;
+    @apply text-3xl font-semibold tracking-tight mt-10 mb-4;
   }
   h3 {
     @apply text-xl font-medium tracking-tight mt-8 mb-3;
-    text-wrap: balance;
   }
   p {
-    @apply leading-relaxed text-muted-foreground mb-4 text-base md:text-lg;
-    text-wrap: pretty;
+    @apply leading-relaxed text-muted-foreground mb-4 text-lg;
   }
   
   /* Link Styling */
