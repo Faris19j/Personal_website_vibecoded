@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { Badge } from "@/components/ui/Badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { calculateReadTime, formatReadTime } from "@/lib/readTime";
+import { SubscribeForm } from "@/components/SubscribeForm";
 
 export default function Blog() {
   const { data: posts, isLoading } = usePosts();
@@ -74,6 +75,10 @@ export default function Blog() {
             )}
           </div>
         )}
+
+        <div className="border-t border-border/50 pt-16 mt-16">
+          <SubscribeForm />
+        </div>
       </div>
     </PageTransition>
   );
