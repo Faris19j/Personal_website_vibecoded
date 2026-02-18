@@ -8,6 +8,7 @@ import ProjectDetail from "@/pages/ProjectDetail";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import Awards from "@/pages/Awards";
+import AwardDetail from "@/pages/AwardDetail";
 import Contact from "@/pages/Contact";
 
 function Router() {
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/awards" component={Awards} />
+      <Route path="/awards/:slug" component={AwardDetail} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
