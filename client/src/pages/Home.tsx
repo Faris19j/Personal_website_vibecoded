@@ -12,12 +12,11 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
             Hi, I'm Faris. <br />
             <span className="text-muted-foreground font-light">
-            Building digital with multidisciplinary thinking  
+            Multidisciplinary product builder 
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
-            I help designers and engineers build mission critical products that solve real problems, drive business growth, and bring founders' visions to life.
-          </p>
+I help designers and engineers build mission critical products that brings founders' visions to life.        </p>
           <div className="flex gap-4 pt-4">
             <Link href="/work">
               <Button size="lg" className="rounded-full px-8">
