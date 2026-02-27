@@ -12,12 +12,11 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
             Hi, I'm Faris. <br />
             <span className="text-muted-foreground font-light">
-              I build digital products.
+            Building digital with multidisciplinary thinking  
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
-            I'm an aspiring Polymath focused on building clean, accessible, and
-            performant web applications.
+            I help designers and engineers build mission critical products that solve real problems, drive business growth, and bring founders' visions to life.
           </p>
           <div className="flex gap-4 pt-4">
             <Link href="/work">
@@ -41,13 +40,13 @@ export default function Home() {
           </div>
           <div className="space-y-4 text-lg text-muted-foreground">
             <p>
-              I am a multidisciplinary builder with a background in Design
-              Systems and Product Engineering. My philosophy is simple:
+              I am a multidisciplinary builder with a background in
+              Computer scince and Product Engineering. My philosophy is simple:
               technology should be invisible, enabling users to achieve their
               goals without friction.
             </p>
             <p>
-              Currently, I'm exploring the intersection of AI and human-computer
+              Currently, I'm exploring the intersection of AI and human
               interaction, trying to find patterns that make generative
               interfaces feel natural and reliable.
             </p>
@@ -96,7 +95,7 @@ export default function Home() {
             <span>Interests</span>
           </div>
           <p className="text-lg text-muted-foreground">
-            When I'm not coding, I'm deeply interested in urban planning, analog
+            When I'm not working, I'm deeply interested in economics and finance,
             photography, and making the perfect cup of coffee. I believe that
             great software shares the same principles as great architecture: it
             should be functional, durable, and beautiful.
@@ -108,8 +107,7 @@ export default function Home() {
             Do you have a challenge for me?
           </h2>
           <p className="text-muted-foreground text-lg max-w-md">
-            I'm always looking for interesting problems to solve. Let's build
-            something together.
+            Let's Create impact together.
           </p>
           <Link href="/contact">
             <Button size="lg" className="rounded-full px-12">
