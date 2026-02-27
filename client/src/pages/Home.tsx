@@ -103,7 +103,7 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="py-24 border-t border-border/50 flex flex-col items-center text-center gap-6">
+        <section className="py-12 border-t border-border/50 flex flex-col items-center text-center gap-6">
           <h2 className="text-3xl font-bold tracking-tight">
             Do you have a challenge for me?
           </h2>
