@@ -1,6 +1,6 @@
 import { PageTransition } from "@/components/layout/PageTransition";
 import { Link } from "wouter";
-import { Award, ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const awards = [
   {
@@ -69,19 +69,11 @@ export default function Awards() {
                       <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
                         {award.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        {award.organization}
-                      </p>
-                      <p className="text-base text-muted-foreground leading-relaxed line-clamp-2">
+                      <p className="text-base text-muted-foreground leading-relaxed line-clamp-2 mb-0">
                         {award.description}
                       </p>
                     </div>
-                    <div className="flex items-center gap-3 flex-shrink-0">
-                      <span className="text-sm font-mono text-muted-foreground whitespace-nowrap">
-                        {award.year}
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
                   </div>
                 </div>
               </div>

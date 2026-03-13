@@ -45,9 +45,16 @@ export default function ProjectDetail() {
         <header className="mb-12 border-b border-border pb-8">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">{project.title}</h1>
           <p className="text-xl md:text-2xl text-muted-foreground font-light mb-6 leading-relaxed">{project.summary}</p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tags.map((tag: string) => (
+              <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-secondary text-muted-foreground">{tag}</span>
+            ))}
+          </div>
           {project.link && (
-            <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium">
-              View Project <ExternalLink className="w-4 h-4" />
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="rounded-full px-8 inline-flex items-center gap-2">
+                View Project <ExternalLink className="w-4 h-4" />
+              </Button>
             </a>
           )}
         </header>

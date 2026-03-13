@@ -2,7 +2,7 @@ import { useProjects } from "@/hooks/use-content";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { Link } from "wouter";
 import { Badge } from "@/components/ui/Badge";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/Button";
 
@@ -20,42 +20,58 @@ export default function Work() {
         </header>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="space-y-4">
-                <Skeleton className="h-64 w-full rounded-xl" />
-                <Skeleton className="h-8 w-2/3" />
-                <Skeleton className="h-4 w-full" />
-              </div>
+          <div className="space-y-4">
+            {[1, 2, 3].map((i) => (
+              <Skeleton key={i} className="h-20 w-full rounded-lg" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+          <div className="space-y-6">
             {projects?.map((project) => (
-              <Link key={project.id} href={`/work/${project.slug}`} className="group block space-y-4 cursor-pointer">
-                <div className="aspect-[16/10] bg-secondary rounded-xl overflow-hidden border border-border/50 transition-all group-hover:border-primary/50 group-hover:shadow-lg relative">
-                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20 font-bold text-4xl select-none group-hover:scale-110 transition-transform">
-                    {project.title.substring(0, 2)}
+              <Link
+                key={project.id}
+                href={`/work/${project.slug}`}
+                className="group block p-6 border border-border/50 rounded-lg hover:border-primary/50 hover:bg-secondary/30 transition-all duration-300 cursor-pointer"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 pt-1 text-primary font-mono font-bold text-lg group-hover:text-accent transition-colors">
+                    {">_"}
                   </div>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-2xl font-semibold mt-0 group-hover:underline decoration-1 underline-offset-4">
-                      {project.title}
-                    </h3>
-                    <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-base text-muted-foreground leading-relaxed line-clamp-2 mb-3">
+                          {project.summary}
+                        </p>
+                        <div className="flex flex-wrap items-center gap-2">
+                          {project.tags.map((tag) => (
+                            <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-secondary text-muted-foreground">{tag}</span>
+                          ))}
+                          {project.link && (
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-primary hover:underline inline-flex items-center gap-1 ml-2"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              Live <ExternalLink className="w-3 h-3" />
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                      <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                    </div>
                   </div>
-
-                  <p className="text-muted-foreground line-clamp-2">
-                    {project.summary}
-                  </p>
                 </div>
               </Link>
             ))}
-            
+
             {(!projects || projects.length === 0) && (
-              <div className="col-span-full py-24 text-center border rounded-xl border-dashed">
+              <div className="py-24 text-center border rounded-lg border-dashed">
                 <p className="text-muted-foreground">No projects published yet.</p>
               </div>
             )}
