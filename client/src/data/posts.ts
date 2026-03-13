@@ -1,4 +1,11 @@
-import type { Post } from "@shared/schema";
+export interface Post {
+  id: number;
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  content: string;
+}
 
 export const posts: Post[] = [
   {

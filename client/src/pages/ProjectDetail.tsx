@@ -1,7 +1,7 @@
 import { useProject } from "@/hooks/use-content";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { Link, useRoute } from "wouter";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -45,6 +45,11 @@ export default function ProjectDetail() {
         <header className="mb-12 border-b border-border pb-8">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">{project.title}</h1>
           <p className="text-xl md:text-2xl text-muted-foreground font-light mb-6 leading-relaxed">{project.summary}</p>
+          {project.link && (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium">
+              View Project <ExternalLink className="w-4 h-4" />
+            </a>
+          )}
         </header>
 
         <article className="prose prose-lg prose-neutral dark:prose-invert max-w-none">
